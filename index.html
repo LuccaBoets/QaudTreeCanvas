@@ -240,38 +240,27 @@
     }
 
     function drawBox(box) {
-      //console.log(box)
-      ctx.strokeStyle = "white";
-      //ctx.fillStyle= getRandomColor();
-      // if(box[2] == 500){
-      //   ctx.fillStyle = "red"
-      // } else if(box[2] == 500){
-      //   ctx.fillStyle = "red"
-      // } else if(box[2] == 500){
-      //   ctx.fillStyle = "red"
-      // } else if(box[2] == 500){
-      //   ctx.fillStyle = "red"
-      // } 250/500
-      if(document.getElementById("colorColor").value == "RandomPerGeneration"){
-        var generation = ((canvas.width/2)/box[2])-1;
-        if(colors.length > generation){
+
+      if (document.getElementById("colorColor").value == "RandomPerGeneration") {
+        var generation = ((canvas.width / 2) / box[2]) - 1;
+        if (colors.length > generation) {
           colors.push(getRandomColor())
         }
         ctx.fillStyle = colors[generation];
-      ctx.fillRect(box[0], box[1], box[2]+1, box[3]+1);
+        ctx.fillRect(box[0], box[1], box[2] + 1, box[3] + 1);
 
-      } else if(document.getElementById("colorColor").value == "RandomPerBox"){
+      } else if (document.getElementById("colorColor").value == "RandomPerBox") {
         ctx.fillStyle = getRandomColor();
-      ctx.fillRect(box[0], box[1], box[2]+1, box[3]+1);
+        ctx.fillRect(box[0], box[1], box[2] + 1, box[3] + 1);
 
       }
 
-      
+      if (document.getElementById("outline").checked) {
 
-
-      if(document.getElementById("outline").checked){
+        ctx.strokeStyle = "white";
         ctx.lineWidth = 1;
         ctx.strokeRect(box[0], box[1], box[2], box[3]);
+        
       }
     }
 
