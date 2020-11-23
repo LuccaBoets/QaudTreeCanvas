@@ -247,11 +247,12 @@
           colors.push(getRandomColor())
         }
         ctx.fillStyle = colors[generation];
-        ctx.fillRect(box[0], box[1], box[2] + 1, box[3] + 1);
+        ctx.fillRect(box[0], box[1], box[2], box[3]);
 
       } else if (document.getElementById("colorColor").value == "RandomPerBox") {
+        
         ctx.fillStyle = getRandomColor();
-        ctx.fillRect(box[0], box[1], box[2] + 1, box[3] + 1);
+        ctx.fillRect(box[0], box[1], box[2], box[3]);
 
       }
 
@@ -260,7 +261,7 @@
         ctx.strokeStyle = "white";
         ctx.lineWidth = 1;
         ctx.strokeRect(box[0], box[1], box[2], box[3]);
-        
+
       }
     }
 
