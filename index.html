@@ -5,343 +5,213 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QaudTree</title>
+
+  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <link rel="stylesheet" href="css/Style.sass">
 </head>
 
 <body>
+  <div id="outer">
+    <div id="inner_fixed">
+      <header class="mdc-top-app-bar">
+        <div class="mdc-top-app-bar__row">
+          <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <span class="mdc-top-app-bar__title">QaudTree</span>
+          </section>
+          <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+            <!-- content -->
+          </section>
+        </div>
+      </header>
 
-  <div>
-    <div>
-      <input type="number" placeholder="pixels" id="pixels" value="100">
-      <input type="number" placeholder="levels" id="levels" value="8">
-      <input type="number" placeholder="condition" id="condition" value="2">
-      <input type="number" placeholder="delay" id="delay" value="0">
-      <select id="methode">
-        <option selected>Good</option>
-        <option>pixelPerPixel</option>
-        <option>boxPerBox</option>
-      </select>
-      <select id="colorColor">
-        <option selected>Normal</option>
-        <option>RandomPerBox</option>
-        <option>RandomPerGeneration</option>
-      </select>
-      <input type="checkbox" name="outline" id="outline" checked>
+      <div class="menu">
+        <div class="menuLeft">
+          <label class="mdc-text-field mdc-text-field--filled">
+            <span class="mdc-text-field__ripple"></span>
+            <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id" placeholder="pixels" id="pixels" value="100">
+            <span class="mdc-line-ripple"></span>
+          </label>
+          <label class="mdc-text-field mdc-text-field--filled">
+            <span class="mdc-text-field__ripple"></span>
+            <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id" placeholder="levels" id="levels" value="8">
+            <span class="mdc-line-ripple"></span>
+          </label>
+          <label class="mdc-text-field mdc-text-field--filled">
+            <span class="mdc-text-field__ripple"></span>
+            <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id" placeholder="condition" id="condition" value="2">
+            <span class="mdc-line-ripple"></span>
+          </label>
+          <label class="mdc-text-field mdc-text-field--filled">
+            <span class="mdc-text-field__ripple"></span>
+            <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id" placeholder="delay" id="delay" value="0">
+            <span class="mdc-line-ripple"></span>
+          </label>
+          <!-- <input type="number" >
+          <input type="number" placeholder="levels" id="levels" value="8">
+          <input type="number" placeholder="condition" id="condition" value="2">
+          <input type="number" placeholder="delay" id="delay" value="0"> -->
+          <div class="mdc-select mdc-select--filled demo-width-class" id="selectQaudtreeMethode">
+            <div class="mdc-select__anchor"
+                 role="button"
+                 aria-haspopup="listbox"
+                 aria-expanded="false"
+                 aria-labelledby="demo-label demo-selected-text">
+              <span class="mdc-select__ripple"></span>
+              <span id="demo-label" class="mdc-floating-label">Pick Qaudtree Methode</span>
+              <span class="mdc-select__selected-text-container">
+                <span id="demo-selected-text" class="mdc-select__selected-text"></span>
+              </span>
+              <span class="mdc-select__dropdown-icon">
+                <svg
+                    class="mdc-select__dropdown-icon-graphic"
+                    viewBox="7 10 10 5" focusable="false">
+                  <polygon
+                      class="mdc-select__dropdown-icon-inactive"
+                      stroke="none"
+                      fill-rule="evenodd"
+                      points="7 10 12 15 17 10">
+                  </polygon>
+                  <polygon
+                      class="mdc-select__dropdown-icon-active"
+                      stroke="none"
+                      fill-rule="evenodd"
+                      points="7 15 12 10 17 15">
+                  </polygon>
+                </svg>
+              </span>
+              <span class="mdc-line-ripple"></span>
+            </div>
+          
+            <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+              <ul class="mdc-list" role="listbox" aria-label="Food picker listbox">
+                <li class="mdc-list-item" aria-selected="false" data-value="Good" role="option">
+                  <span class="mdc-list-item__ripple"></span>
+                  <span class="mdc-list-item__text">
+                    Good
+                  </span>
+                </li>
+                <li class="mdc-list-item" aria-selected="false" data-value="pixelPerPixel" aria-disabled="true" role="option">
+                  <span class="mdc-list-item__ripple"></span>
+                  <span class="mdc-list-item__text">
+                    pixelPerPixel
+                  </span>
+                </li>
+                <li class="mdc-list-item" aria-selected="false" data-value="boxPerBox" role="option">
+                  <span class="mdc-list-item__ripple"></span>
+                  <span class="mdc-list-item__text">
+                    boxPerBox
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="mdc-select mdc-select--filled demo-width-class" id="selectColorMode">
+            <div class="mdc-select__anchor"
+                 role="button"
+                 aria-haspopup="listbox"
+                 aria-expanded="false"
+                 aria-labelledby="demo-label demo-selected-text">
+              <span class="mdc-select__ripple"></span>
+              <span id="demo-label" class="mdc-floating-label">Pick Color mode</span>
+              <span class="mdc-select__selected-text-container">
+                <span id="demo-selected-text" class="mdc-select__selected-text"></span>
+              </span>
+              <span class="mdc-select__dropdown-icon">
+                <svg
+                    class="mdc-select__dropdown-icon-graphic"
+                    viewBox="7 10 10 5" focusable="false">
+                  <polygon
+                      class="mdc-select__dropdown-icon-inactive"
+                      stroke="none"
+                      fill-rule="evenodd"
+                      points="7 10 12 15 17 10">
+                  </polygon>
+                  <polygon
+                      class="mdc-select__dropdown-icon-active"
+                      stroke="none"
+                      fill-rule="evenodd"
+                      points="7 15 12 10 17 15">
+                  </polygon>
+                </svg>
+              </span>
+              <span class="mdc-line-ripple"></span>
+            </div>
+          
+            <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+              <ul class="mdc-list" role="listbox" aria-label="Food picker listbox">
+                <li class="mdc-list-item" aria-selected="false" data-value="Normal" role="option">
+                  <span class="mdc-list-item__ripple"></span>
+                  <span class="mdc-list-item__text">
+                    Normal
+                  </span>
+                </li>
+                <li class="mdc-list-item" aria-selected="false" data-value="RandomPerBox" aria-disabled="true" role="option">
+                  <span class="mdc-list-item__ripple"></span>
+                  <span class="mdc-list-item__text">
+                    RandomPerBox
+                  </span>
+                </li>
+                <li class="mdc-list-item" aria-selected="false" data-value="RandomPerGeneration" role="option">
+                  <span class="mdc-list-item__ripple"></span>
+                  <span class="mdc-list-item__text">
+                    RandomPerGeneration
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mdc-form-field">
+            <div class="mdc-checkbox">
+              <input type="checkbox" id="outline"
+                     class="mdc-checkbox__native-control"
+                     id="checkbox-1" checked/>
+              <div class="mdc-checkbox__background">
+                <svg class="mdc-checkbox__checkmark"
+                     viewBox="0 0 24 24">
+                  <path class="mdc-checkbox__checkmark-path"
+                        fill="none"
+                        d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                </svg>
+                <div class="mdc-checkbox__mixedmark"></div>
+              </div>
+              <div class="mdc-checkbox__ripple"></div>
+            </div>
+            <!-- <label for="checkbox-1">Checkbox 1</label> -->
+          </div>
+          <!-- <input type="checkbox" name="outline"  checked> -->
+        </div>
+        <div class="menuRight">
+          <button class="mdc-button mdc-button--raised" onclick="generateRandomPoints()">
+            <span class="mdc-button__label">Generate (Random points)</span>
+          </button>
+          <button class="mdc-button mdc-button--raised" onclick="generateDraw()">
+            <span class="mdc-button__label">Generate</span>
+          </button>
+          <button class="mdc-button mdc-button--raised" onclick="clearCanvas()">
+            <span class="mdc-button__label">Clear</span>
+          </button>
+        </div>
+      </div>
     </div>
-    <button onclick="generateRandomPoints()">Generate (Random points)</button>
-    <button onclick="generateDraw()">Generate</button>
-    <button onclick="clearCanvas()">Clear</button>
+    <!-- idth="1000" height="1000"  -->
+    <div id="inner_remaining">
+
+      <canvas id="canvas"></canvas>
+      <div class="mdc-snackbar" id="snackbar">
+        <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
+          <div class="mdc-snackbar__label" aria-atomic="false" style="text-align: center; font-size: large;">
+            algorithm is done
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <canvas width="1000" height="1000" style="background-color: black;" id="canvas"></canvas>
-
-  <script>
-
-    var pixels = [,];
-    var boxes = [,];
-    var colors = [];
-
-    var canvas = document.getElementById('canvas');
-    var ctx = canvas.getContext('2d');
-
-    canvas.addEventListener("mousedown", mousedown);
-    canvas.addEventListener("mouseup", mouseup);
-
-    function getRandomColor() {
-      var letters = '0123456789ABCDEF';
-      var color = '#';
-      for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-      }
-      return color;
-    }
-
-    function generateDraw() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = "Black"
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
-
-      pixels.forEach(pixel => {
-        redrawPixel(pixel);
-      })
-
-      boxes = [,];
-      colors = [];
-      if (document.getElementById("methode").value == "Good") {
-        generateQaudTree();
-      } else {
-        generateQaudTreeOld();
-      }
-
-      alert("Done")
-    }
-
-    function generateRandomPoints() {
-      pixels = [,];
-      boxes = [,];
-      colors = [];
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = "Black"
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
-
-      for (let i = 0; i < document.getElementById("pixels").value; i++) {
-        drawRandomPixel();
-      }
-      //console.log(pixels)
-      if (document.getElementById("methode").value == "Good") {
-        generateQaudTree();
-      } else {
-        generateQaudTreeOld();
-      }
-
-
-      alert("Done")
-    }
-
-    function generateQaudTree() {
-      console.time('Function #1');
-
-      box = [0, 0, canvas.width, canvas.height, pixels]
-      recusive(box)
-
-      console.timeEnd('Function #1');
-    }
-
-    function recusive(box) {
-      setTimeout(function () {
-        drawBox(box)
-        var amountPixelsInBox = 0
-        var pixelInBox = []
-
-        box[4].forEach(pixel => {
-
-          if (box[0] <= pixel[0] && box[0] + box[2] > pixel[0] && box[1] <= pixel[1] && box[1] + box[3] > pixel[1]) {
-            amountPixelsInBox++;
-            pixelInBox.push(pixel)
-          }
-        })
-
-        if (amountPixelsInBox <= document.getElementById("condition").value) {
-          //console.log("Done")
-          return
-        } else {
-          var x = box[0]
-          var y = box[1]
-          var width = box[2]
-          var height = box[3]
-          recusive([x, y, width / 2, height / 2, pixelInBox])
-          recusive([x + width / 2, y, width / 2, height / 2, pixelInBox])
-          recusive([x, y + height / 2, width / 2, height / 2, pixelInBox])
-          recusive([x + width / 2, y + height / 2, width / 2, height / 2, pixelInBox])
-        }
-      }, document.getElementById("delay").value);
-
-    }
-
-    function generateQaudTreeOld() {
-      console.time('Function #1');
-
-      boxes = [,]
-
-      divideQaudTree(0, 0, canvas.width, canvas.height)
-
-      var count = 0;
-      while (boxes.length != 0 && count < document.getElementById("levels").value) {
-
-        if (document.getElementById("methode").value == "pixelPerPixel") {
-          pixelPerPixel();
-        } else if (document.getElementById("methode").value == "boxPerBox") {
-          boxPerBox();
-        }
-
-        count++;
-      }
-
-      console.timeEnd('Function #1');
-    }
-
-    function boxPerBox() {
-      boxes.forEach(box => {
-
-        var amountPixelsInBox = 0;
-        pixels.forEach(pixel => {
-          //console.log(box,pixel, box[0] <= pixel[0] , box[0] + box[2] > pixel[0] , box[1] <= pixel[1] , box[1] + box[3] > pixel[1])
-
-          if (box[0] <= pixel[0] && box[0] + box[2] > pixel[0] && box[1] <= pixel[1] && box[1] + box[3] > pixel[1]) {
-            amountPixelsInBox++;
-          }
-        })
-        //console.log(amountPixelsInBox)
-        if (amountPixelsInBox <= 2) { // move up and break when Done better version
-          //console.log("Done")
-          const index = boxes.indexOf(box);
-          if (index > -1) {
-            boxes.splice(index, 1);
-          }
-          //boxes.remove(box);
-        } else {
-          divideQaudTree(box[0], box[1], box[2], box[3]);
-        }
-      });
-    }
-
-    function pixelPerPixel() {
-      var amountPixelsInBoxes = []
-      boxes.forEach(box => {
-        amountPixelsInBoxes.push(0)
-      })
-
-      pixels.forEach(pixel => {
-        boxes.forEach(box => {
-          if (box[0] <= pixel[0] && box[0] + box[2] > pixel[0] && box[1] <= pixel[1] && box[1] + box[3] > pixel[1]) {
-            amountPixelsInBoxes[boxes.indexOf(box) - 1]++;
-          }
-        })
-      })
-
-      //console.log(amountPixelsInBoxes)
-
-      var counter = 0;
-      amountPixelsInBoxes.forEach(amountPixelsInBox => {
-        //console.log(amountPixelsInBox, boxes,counter)
-        if (amountPixelsInBox <= document.getElementById("condition").value) {
-          //console.log("Done")
-          boxes.splice(counter, 1);
-        } else {
-          counter++;
-          var box = boxes[counter]
-          divideQaudTree(box[0], box[1], box[2], box[3]);
-        }
-      })
-    }
-
-    function divideQaudTree(x, y, width, height) {
-
-      boxes.push([x, y, width / 2, height / 2]) // left-top
-      drawBox(boxes[boxes.length - 1]);
-
-      boxes.push([x + width / 2, y, width / 2, height / 2]) // right-top
-      drawBox(boxes[boxes.length - 1]);
-
-      boxes.push([x, y + height / 2, width / 2, height / 2]) //left-bottom
-      drawBox(boxes[boxes.length - 1]);
-
-      boxes.push([x + width / 2, y + height / 2, width / 2, height / 2]) //right-bottom
-      drawBox(boxes[boxes.length - 1]);
-
-    }
-
-    function drawBox(x, y, width, height) {
-      //console.log(x, y, width, height)
-      ctx.strokeStyle = "white";
-      ctx.lineWidth = 1;
-      ctx.strokeRect(x, y, width, height);
-    }
-
-    function drawBox(box) {
-
-      if (document.getElementById("colorColor").value == "RandomPerGeneration") {
-        var generation = ((canvas.width / 2) / box[2]) - 1;
-        if (colors.length > generation) {
-          colors.push(getRandomColor())
-        }
-        ctx.fillStyle = colors[generation];
-        ctx.fillRect(box[0], box[1], box[2], box[3]);
-
-      } else if (document.getElementById("colorColor").value == "RandomPerBox") {
-        
-        ctx.fillStyle = getRandomColor();
-        ctx.fillRect(box[0], box[1], box[2], box[3]);
-
-      }
-
-      if (document.getElementById("outline").checked) {
-
-        ctx.strokeStyle = "white";
-        ctx.lineWidth = 1;
-        ctx.strokeRect(box[0], box[1], box[2], box[3]);
-
-      }
-    }
-
-    function drawRandomPixel() {
-      var x = Math.random() * canvas.width;
-      var y = Math.random() * canvas.height;
-      ctx.fillStyle = "white";
-      //ctx.arc(x, y, (Math.round(Math.random()*50)+20), 0, 2 * Math.PI);
-      ctx.fillRect(x, y, 1, 1)
-      pixels.push([x, y])
-    }
-
-    function redrawPixel(pixel) {
-      ctx.fillStyle = "white";
-      //ctx.arc(x, y, (Math.round(Math.random()*50)+20), 0, 2 * Math.PI);
-      ctx.fillRect(pixel[0], pixel[1], 1, 1)
-    }
-
-    function drawPixel(x, y) {
-      //console.log(x, y)
-      ctx.fillStyle = "white";
-      //ctx.arc(x, y, (Math.round(Math.random()*50)+20), 0, 2 * Math.PI);
-      ctx.fillRect(x, y, 1, 1)
-      pixels.push([x, y])
-    }
-
-    var xCursor = 0;
-    var yCursor = 0;
-    var mousedownBool = false;
-    document.onmousemove = handleMouseMove;
-
-    function handleMouseMove(event) {
-      var eventDoc, doc, body;
-
-      event = event || window.event; // IE-ism
-
-      // If pageX/Y aren't available and clientX/Y are,
-      // calculate pageX/Y - logic taken from jQuery.
-      // (This is to support old IE)
-      if (event.pageX == null && event.clientX != null) {
-        eventDoc = (event.target && event.target.ownerDocument) || document;
-        doc = eventDoc.documentElement;
-        body = eventDoc.body;
-
-        event.pageX = event.clientX +
-          (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
-          (doc && doc.clientLeft || body && body.clientLeft || 0);
-        event.pageY = event.clientY +
-          (doc && doc.scrollTop || body && body.scrollTop || 0) -
-          (doc && doc.clientTop || body && body.clientTop || 0);
-      }
-
-      // Use event.pageX / event.pageY here
-      xCursor = event.pageX - canvas.offsetLeft;
-      yCursor = event.pageY - canvas.offsetTop;
-
-      if (mousedownBool) {
-        drawPixel(xCursor, yCursor);
-      }
-    }
-
-    function mousedown() {
-      mousedownBool = true;
-      drawPixel(xCursor, yCursor);
-    }
-
-    function mouseup() {
-      mousedownBool = false;
-    }
-
-    function clearCanvas() {
-      pixels = [,];
-      boxes = [,];
-      colors = [];
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "Black"
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
-    }
-
-  </script>
+  <script src="js/Qaudtree.js"></script>
+  <script src="js/Styling.js"></script>
 
 </body>
 
